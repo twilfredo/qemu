@@ -257,13 +257,14 @@ const QEnumLookup SpdmTransport_lookup = {
         [SPDM_SOCKET_TRANSPORT_TYPE_PCI_DOE] = "doe",
         [SPDM_SOCKET_TRANSPORT_TYPE_SCSI] = "scsi",
         [SPDM_SOCKET_TRANSPORT_TYPE_NVME] = "nvme",
+        [SPDM_SOCKET_TRANSPORT_TYPE_ATA] = "ata",
     },
     .size = SPDM_SOCKET_TRANSPORT_TYPE_MAX
 };
 
 const PropertyInfo qdev_prop_spdm_trans = {
     .type = "SpdmTransportType",
-    .description = "Spdm Transport, doe/nvme/mctp/scsi/unspecified",
+    .description = "Spdm Transport, doe/nvme/mctp/scsi/ata/unspecified",
     .enum_table = &SpdmTransport_lookup,
     .get = qdev_propinfo_get_enum,
     .set = qdev_propinfo_set_enum,
