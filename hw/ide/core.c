@@ -1715,7 +1715,6 @@ static void security_spdm_to_server(IDEState *s)
     /* Generate the transport header */
     hdr.security_protocol = secp;
     hdr.security_protocol_specific = cpu_to_le16((spsp1 << 8) | spsp0);
-    hdr.inc_512 = false; /* Unsupported */
     hdr.length = cpu_to_le32(transport_len);
 
     sec_buf = g_malloc0(transport_len);
@@ -1802,7 +1801,6 @@ static bool security_spdm_recv(IDEState *s, bool is_dma)
     /* Generate the transport header */
     hdr.security_protocol = secp;
     hdr.security_protocol_specific = cpu_to_le16((spsp1 << 8) | spsp0);
-    hdr.inc_512 = false;
     hdr.length = cpu_to_le32(allocation_len);
 
     /* Forward if_recv to the SPDM Server with SPSP0 */
